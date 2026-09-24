@@ -1,25 +1,23 @@
 # Forecasting ZMW/USD Volatility
-SSRN: 11727268 | Author: Henry Mayambu | Submitted to Bank of Zambia Working Papers
-DOI transfer from SSRN 7029358 (ZAR/USD) to ZMW/USD
+SSRN: 11727388 | Author: Henry Mayambu | Submitted to Bank of Zambia Working Papers
+DOI transfer from SSRN 1029558 (ZAR/USD) to ZMW/USD
 
 ## Overview
-Comparative study of GARCH(1,1), EGARCH(1,1), Stochastic Volatility (SV-MCMC), Random Forest, and LSTM for ZMW/USD daily volatility 2015-2026. Rolling out-of-sample 2020-2026.
+Comparative study of GARCH(1,1), EGARCH(1,1), Stochastic Volatility (SV-MCMC), Random Forest, and LSTM for ZMW/USD daily volatility 2015-2024. Rolling out-of-sample 2020-2024.
 
 Key result: Random Forest MSE 2.423 (-13.9% vs GARCH, DM -3.12***), SV-MCMC best QLIKE 0.182 for VaR / BoZ stress tests.
 
 ## Data
-Source: Bank of Zambia daily rates + FRED DEXZAUS
-Period: 2015-01-01 to 2026-06-30, T=2,987 obs
+Source: Yahoo Finance ZMW=X + Bank of Zambia daily rates (validated)
+Period: 2015-01-02 to 2024-12-31
+Observations: T=2604
 Returns: rt = 100 * ln(Pt/Pt-1)
-File: data/zmw_usd.csv
+File: zmw_usd_daily_2015_2024.csv (also in /data/)
 
-## How to replicate
-1. pip install -r requirements.txt
-2. python src/forecast.py
+## Reproducibility
+- requirements.txt lists all packages
+- Data is in repo root and /data/
+- Run: python -m src.forecast
 
-## Results
-See Table 2 in paper: Out-of-sample MSE/QLIKE and DM tests.
-Regime split: Calm 2020-2021 vs Crisis 2022-2024 (Table 3).
-
-## Disclaimer
-Views are author's own, not BoZ. Replication code at https://github.com/hmayambu-sys/zmw-volatility
+## Link to BoZ
+This repo supports BoZ Working Paper submission transferring methodology from ZAR/USD to ZMW/USD.
